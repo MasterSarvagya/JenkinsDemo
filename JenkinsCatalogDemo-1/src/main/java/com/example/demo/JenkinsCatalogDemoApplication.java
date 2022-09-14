@@ -2,18 +2,16 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-import com.example.database.ProductDataSource;
-
 @SpringBootApplication(scanBasePackages = "com.example")
-public class JenkinsCatalogDemo1Application {
+@EnableEurekaClient
+public class JenkinsCatalogDemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JenkinsCatalogDemo1Application.class, args);
-
-		System.out.println(ProductDataSource.products);
+		SpringApplication.run(JenkinsCatalogDemoApplication.class, args);
 	}
 
 	@Bean

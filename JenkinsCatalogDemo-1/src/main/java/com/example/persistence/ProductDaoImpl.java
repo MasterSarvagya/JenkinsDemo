@@ -2,10 +2,13 @@ package com.example.persistence;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.example.bean.Product;
 import com.example.bean.ProductList;
 import com.example.database.ProductDataSource;
 
+@Repository
 public class ProductDaoImpl implements ProductDao {
 
 	@Override
