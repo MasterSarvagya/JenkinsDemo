@@ -6,10 +6,13 @@ import org.springframework.stereotype.Service;
 import com.example.bean.Order;
 import com.example.persistence.OrderDao;
 
+import lombok.Setter;
+
 @Service
 public class OrderServiceImpl implements OrderService {
 
 	@Autowired
+	@Setter
 	private OrderDao orderDao;
 
 	@Override
