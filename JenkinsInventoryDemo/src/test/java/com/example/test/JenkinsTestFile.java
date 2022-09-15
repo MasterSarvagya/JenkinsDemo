@@ -1,20 +1,25 @@
 package com.example.test;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.http.ResponseEntity;
 
 import com.example.bean.InventoryItem;
+import com.example.bean.InventoryItemList;
+import com.example.service.InventoryService;
 
 class JenkinsTestFile {
 
-	private static List<InventoryItem> inventoryItems;
+	private static List<InventoryItem> inventoryItems = new ArrayList<>();
 
 	@Autowired
-	private RestTemplate restTemplate;
+	private InventoryService inventoryService;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,6 +36,9 @@ class JenkinsTestFile {
 
 	@Test
 	void TestAllInventroy() {
+
+		assertArrayEquals(inventoryItems.toArray(),
+				inventoryService.getInventoryItemList().getInventoryItems().toArray());
 
 	}
 
