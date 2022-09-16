@@ -11,7 +11,6 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.bean.Order;
@@ -24,8 +23,7 @@ class ServiceTest {
 
 	private static OrderDao orderDao;
 
-	@Autowired
-	private static OrderServiceImpl orderService;
+	private static OrderServiceImpl orderService = new OrderServiceImpl();
 
 	private static List<OrderItem> orderItems;
 	private static Order order;
@@ -42,6 +40,7 @@ class ServiceTest {
 
 		when(orderDao.findOrderById(1L)).thenReturn(order);
 		when(orderDao.findOrderById(100L)).thenReturn(null);
+		when(orderDao.saveOrder(order)).thenReturn(true);
 
 		orderService.setOrderDao(orderDao);
 	}

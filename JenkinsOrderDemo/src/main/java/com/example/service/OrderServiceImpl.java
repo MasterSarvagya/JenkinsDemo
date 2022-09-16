@@ -17,14 +17,12 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public boolean saveOrder(Order order) {
-		// TODO Auto-generated method stub
-		return false;
+		return orderDao.saveOrder(order);
 	}
 
 	@Override
 	public Order findOrderById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return orderDao.findOrderById(id);
 	}
 
 }

@@ -1,22 +1,27 @@
 package com.example.demo;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.bean.Order;
 import com.example.bean.OrderItem;
+import com.example.persistence.OrderDao;
 import com.example.persistence.OrderDaoImpl;
 
 @SpringBootTest
 class PersistenceTest {
 
-	private static OrderDaoImpl orderDao;
+	@Autowired
+	private static OrderDao orderDao = new OrderDaoImpl();
 
 	private static List<OrderItem> orderItems;
 	private static Order order;
